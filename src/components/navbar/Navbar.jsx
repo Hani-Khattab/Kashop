@@ -41,6 +41,9 @@ export default function Navbar() {
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <Link component={RouterLink} to={'/login'} startIcon={<PersonOutlineIcon />}
             sx={{ color: "#252B42", textTransform: "none" }} underline="none">Login </Link>
+              <span>/</span>
+          <Link component={RouterLink} to={'/register'} startIcon={<PersonOutlineIcon />}
+            sx={{ color: "#252B42", textTransform: "none" }} underline="none">Register </Link>
 
           <IconButton sx={{ color: "#252B42" }}>
             <SearchIcon />
