@@ -8,7 +8,7 @@ import { loginSchema } from '../../../validation/loginSchema';
 export default function Login() {
 
 const {register,handleSubmit,formState:{errors}} = useForm({
-  resolver: yupResolver(loginSchema)
+  resolver: yupResolver(loginSchema),mode:'onBlur'
 });
     
 
@@ -46,15 +46,21 @@ const loginForm = async(values)=>{
         error={errors.password}
         helperText={errors.password?.message}/>
 
-      <Typography textAlign={"right"} fontSize={14} sx={{ cursor: "pointer", color: "#252B42" }}>Forgot Password?</Typography>
+      <Box display={'flex'} justifyContent={'space-between'}alignItems={'center'}>
+        <FormControlLabel  control={<Checkbox />} label="Remember me" /> 
+      <Typography textAlign={"right"} fontSize={14} sx={{ cursor: "pointer", color: "#3c4b86" }}>Forgot Password?</Typography>
+       
+       </Box>
+
       <Button variant="contained"  type='submit'
-          sx={{ backgroundColor: "#252B42", py: 1.5,  mt: 1, fontWeight: "bold", borderRadius: 2,"&:hover": { backgroundColor: "#1a1f33" }  }}>LOGIN
+          sx={{ backgroundColor: "#252B42", py: 1.5,  mt: 1, fontWeight: "bold", borderRadius: 2,"&:hover": { backgroundColor: "#4c3a61" }  }}>LOGIN
       </Button>
+      
       <Typography display={'flex'}>
         <span>Don't have an account?</span>
       <Link component={RouterLink} to={'/register'} style={{ color: "#3e62f5", cursor: "pointer" }} >Create Account </Link>
       </Typography>
-      <FormControlLabel  control={<Checkbox />} label="Remember me" />  
+      
       </Box>
     </Box>
   </Box>
