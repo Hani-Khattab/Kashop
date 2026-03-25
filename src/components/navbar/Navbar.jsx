@@ -31,6 +31,7 @@ export default function Navbar() {
           <Link component={RouterLink} to={'/about'} color="inherit" underline="none">About</Link>
           <Link component={RouterLink} to={'/blog'} color="inherit" underline="none">Blog</Link>
           <Link component={RouterLink} to={'/contact'} color="inherit" underline="none">Contacts</Link>
+          <Link component={RouterLink} to={'/cart'} color="inherit" underline="none">Carts</Link>
         </Box>
 
         <IconButton sx={{display:{xs:'flex' , sm:'none'} , color: "#252B42"  }}>

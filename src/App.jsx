@@ -1,12 +1,24 @@
 import React, { Component } from 'react'
-import { RouterContextProvider, RouterProvider } from 'react-router-dom'
+import {  RouterProvider } from 'react-router-dom'
 import router from '../router'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 
 export default class App extends Component {
+
+  
   render() {
+
+    const queryClient = new QueryClient()
     return (
-     < RouterProvider router ={router} />
+
+      <QueryClientProvider client={queryClient}>
+
+      < RouterProvider router ={router} />
+
+    </QueryClientProvider>
+
+     
     )
   }
 }

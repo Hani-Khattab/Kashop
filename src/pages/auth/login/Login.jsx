@@ -15,6 +15,9 @@ const {register,handleSubmit,formState:{errors}} = useForm({
 const loginForm = async(values)=>{
       try{ 
         const response = await axios.post(`https://knowledgeshop.runasp.net/api/auth/Account/Login`,values);
+        if (response.status === 200){
+          localStorage.setItem("accessToken",response.data.accessToken)
+        }
         console.log("response" , response);
       }catch(error){
         console.log("catch error",error);
@@ -27,11 +30,8 @@ const loginForm = async(values)=>{
 <section  className='Login' >
     
   <Box component={"section"} display={"flex"} justifyContent={'center'} alignItems={'center'} minHeight={"80vh"}>
-
     <Box className="login-form" width={{ xs: "95%", md: "40%" }}
         sx={{ backgroundColor: "white",p: 4,borderRadius: 3,boxShadow: 5}}>
-
-      
       <Typography component={"h1"} variant="h4" color="#252B42" fontWeight={700} textAlign={"center"}>Sign In</Typography>
       <Typography component={"h6"}variant="body2" textAlign={"center"} letterSpacing={2} color="gray" marginTop={2} marginBottom={4}>Please enter your details below to sign in.</Typography>
 
