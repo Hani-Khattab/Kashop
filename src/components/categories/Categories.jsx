@@ -1,13 +1,19 @@
-import { Box, CircularProgress } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import useCategories from "../../hooks/useCategories";
+import Loader from "../../ui/Loader/Loader";
 
 export default function Categories() {
   const { data, isLoading, isError, error } = useCategories();
 
-  if (isLoading) return <CircularProgress />;
+  if (isLoading) return <Loader />;
   if (isError) return <Box color={"red"}>{error.message}</Box>;
+  
 
   return (
+    <>
+    <Box className= "categories" py={3}></Box>
+    <Typography component={'h2'} variant="h4" display={'flex'} justifyContent={'center'}>Categories</Typography>
+   
     <Box
       component={"section"}
       display={"flex"}
@@ -16,6 +22,8 @@ export default function Categories() {
       gap={2}
       mt={5}
     >
+       
+      
       {data.response.data.map((Category) => (
         <Box
           sx={{
@@ -31,5 +39,6 @@ export default function Categories() {
         </Box>
       ))}
     </Box>
+    </>
   );
 }

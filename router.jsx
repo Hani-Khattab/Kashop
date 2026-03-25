@@ -8,6 +8,7 @@ import Blogs from "./src/pages/Blogs/Blogs.jsx";
 import Shop from "./src/pages/shop/Shop.jsx";
 import Contact from "./src/pages/contact/Contact.jsx";
 import About from "./src/pages/About/About.jsx";
+import ProductsDetails from "./src/pages/products/ProductsDetails.jsx";
 
 
 const router =  createBrowserRouter([
@@ -27,6 +28,10 @@ const router =  createBrowserRouter([
             {
                 path:'/login',
                 element:<Login />
+            },
+            {
+                path:'/product/:id',
+                element:<ProductsDetails />
             },
             {
                 path:'/register',

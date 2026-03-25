@@ -1,10 +1,9 @@
 import {useQuery } from '@tanstack/react-query';
-import axios from 'axios';
 import axiosInstance from '../api/axiosInstance';
 
 export default function useCategories() {
      const getCategories = async()=>{
-     const response = await axiosInstance.get(`/Categories`);
+     const response = await axiosInstance.get(`/Categories?limit=10`);
      return response.data;
     }
     const query = useQuery({
