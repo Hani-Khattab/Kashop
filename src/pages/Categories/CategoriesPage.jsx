@@ -3,6 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import Loader from '../../ui/Loader/Loader';
 import useCategories from '../../hooks/useCategories';
+import Category from '../../ui/category/Category';
 
 export default function CategoriesPage() {
 
@@ -19,36 +20,7 @@ export default function CategoriesPage() {
       <Grid container spacing={4} justifyContent="center">
   {data.response.data.map((category) => (
     <Grid item xs={12} sm={6} md={4} lg={3}>
-      <Card
-        sx={{
-          marginTop:3,
-          borderRadius: 3,
-          textAlign: "center",
-          transition: "0.3s",
-          cursor: "pointer",
-          "&:hover": {
-            transform: "translateY(-8px)",
-            boxShadow: 6,
-          },
-        }}
-      >
-        <CardContent>
-          <Typography
-            variant="h6"
-            fontWeight="600"
-            sx={{ mb: 1 }}
-          >
-            {category.name}
-          </Typography>
-
-          <Typography
-            variant="body2"
-            color="text.secondary"
-          >
-            Explore products
-          </Typography>
-        </CardContent>
-      </Card>
+      <Category category={category} />
     </Grid>
   ))}
 </Grid>
