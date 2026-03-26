@@ -1,8 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import useCategories from "../../hooks/useCategories";
 import Loader from "../../ui/Loader/Loader";
+import { Link } from "react-router-dom";
 
-export default function Categories() {
+export default function CategoriesSection() {
   const { data, isLoading, isError, error } = useCategories();
 
   if (isLoading) return <Loader />;
@@ -11,9 +12,11 @@ export default function Categories() {
 
   return (
     <>
+
     <Box className= "categories" py={3}></Box>
     <Typography component={'h2'} variant="h4" display={'flex'} justifyContent={'center'}>Categories</Typography>
-   
+    
+    
     <Box
       component={"section"}
       display={"flex"}
@@ -37,7 +40,12 @@ export default function Categories() {
           {" "}
           {Category.name}{" "}
         </Box>
+        
       ))}
+      
+    </Box>
+    <Box display={"flex"} justifyContent={'center'}mt={2}>
+    <Link to='/categories'>Show More</Link>
     </Box>
     </>
   );

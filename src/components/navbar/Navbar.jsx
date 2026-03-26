@@ -7,10 +7,13 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import { Link } from "@mui/material";
+import { Button, Drawer, Link } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
+import { useState } from "react";
 
 export default function Navbar() {
+
+  const [openCart, setOpenCart] = useState(false);
   return (
 
     <AppBar position="static"
@@ -31,7 +34,6 @@ export default function Navbar() {
           <Link component={RouterLink} to={'/about'} color="inherit" underline="none">About</Link>
           <Link component={RouterLink} to={'/blog'} color="inherit" underline="none">Blog</Link>
           <Link component={RouterLink} to={'/contact'} color="inherit" underline="none">Contacts</Link>
-          <Link component={RouterLink} to={'/cart'} color="inherit" underline="none">Carts</Link>
         </Box>
 
         <IconButton sx={{display:{xs:'flex' , sm:'none'} , color: "#252B42"  }}>
@@ -50,7 +52,10 @@ export default function Navbar() {
             <SearchIcon />
           </IconButton>
 
-          <IconButton sx={{ color: "#252B42" }}>
+          <IconButton
+            onClick={() => setOpenCart(true)}
+            sx={{ color: "#252B42" }}
+          >
             <ShoppingCartOutlinedIcon />
           </IconButton>
 
@@ -59,6 +64,27 @@ export default function Navbar() {
           </IconButton>
         </Box>
       </Toolbar>
+      <Drawer
+        anchor="right"
+        open={openCart}
+        onClose={() => setOpenCart(false)}
+      >
+  <Box sx={{ width: 300, p: 2 }}>
+    <h3>Shopping Cart</h3>
+    <p>No items yet</p>
+
+    <Button
+      component={RouterLink}
+      to="/cart"
+      onClick={() => setOpenCart(false)}
+      fullWidth
+      variant="contained"
+      sx={{ mt: 2 }}
+    >
+      View Cart
+    </Button>
+  </Box>
+</Drawer>
     </AppBar>
   );
 }

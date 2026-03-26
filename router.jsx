@@ -9,6 +9,7 @@ import Shop from "./src/pages/shop/Shop.jsx";
 import Contact from "./src/pages/contact/Contact.jsx";
 import About from "./src/pages/About/About.jsx";
 import ProductsDetails from "./src/pages/products/ProductsDetails.jsx";
+import CategoriesPage from "./src/pages/Categories/CategoriesPage.jsx";
 
 
 const router =  createBrowserRouter([
@@ -21,36 +22,41 @@ const router =  createBrowserRouter([
                 element:<Home />
             },
             {
-                path:'/cart',
+                path:'cart',
                 element:
                 <Cart />
             },
             {
-                path:'/login',
+                path:'login',
                 element:<Login />
             },
             {
-                path:'/product/:id',
+                path:'categories',
+                element:<CategoriesPage />
+            },
+            
+            {
+                path:'product/:id',
                 element:<ProductsDetails />
             },
             {
-                path:'/register',
+                path:'register',
                 element:<Register />
             },
             {
-                path:'/blog',
+                path:'blog',
                 element:<Blogs />
             },
             {
-                path:'/shop',
+                path:'shop',
                 element:<Shop />
             },
             {
-                path:'/contact',
+                path:'contact',
                 element:<Contact />
             },
             {
-                path:'/about',
+                path:'about',
                 element:<About />
             },
             

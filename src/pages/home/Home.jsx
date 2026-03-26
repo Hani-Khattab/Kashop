@@ -1,11 +1,11 @@
 import React from 'react'
-import Categories from '../../components/categories/Categories'
 import Products from '../../components/Products/Products'
+import CategoriesSection from '../../components/categories/CategoriesSection'
 
 export default function Home() {
   return (
     <div>
-      <Categories />
+      <CategoriesSection />
       <Products />
     </div>
   )
