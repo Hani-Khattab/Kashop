@@ -37,13 +37,13 @@ export default function Navbar() {
 
         {/* This Is Menue Section in Navbar */}
         <Box sx={{display:{xs:'none' ,sm:'flex'}, gap: 3 }}>
-          <Link component={RouterLink} to={'/'} color="inherit" underline="none">Home</Link>
+          <Link component={RouterLink} to={'/'} color="#737373" underline="none">Home</Link>
              
 
-          <Link component={RouterLink} to={'/shop'} color="inherit" underline="none">Shop</Link>
-          <Link component={RouterLink} to={'/about'} color="inherit" underline="none">About</Link>
-          <Link component={RouterLink} to={'/blog'} color="inherit" underline="none">Blog</Link>
-          <Link component={RouterLink} to={'/contact'} color="inherit" underline="none">Contacts</Link>
+          <Link component={RouterLink} to={'/shop'} color="#737373" underline="none">Shop</Link>
+          <Link component={RouterLink} to={'/about'} color="#737373" underline="none">About</Link>
+          <Link component={RouterLink} to={'/blog'} color="#737373" underline="none">Blog</Link>
+          <Link component={RouterLink} to={'/contact'} color="#737373" underline="none">Contacts</Link>
 
         </Box>
 
@@ -60,33 +60,33 @@ export default function Navbar() {
         <>
              <IconButton
             onClick={() => setOpenCart(true)}
-            sx={{ color: "#252B42" }}
+            sx={{ color: "#23A6F0" }}
           >
             <ShoppingCartOutlinedIcon />
           </IconButton>
           
-          <IconButton sx={{ color: "#252B42" }}>
+          <IconButton sx={{ color: "#23A6F0" }}>
             <SearchIcon />
           </IconButton>
 
          
 
-          <IconButton sx={{ color: "#252B42" }}>
+          <IconButton sx={{ color: "#23A6F0" }}>
             <FavoriteBorderOutlinedIcon />
           </IconButton>
 
 
-           <Link component={'button'} onClick={handleLogout} color="inherit" underline="none">Logout</Link>
+           <Link component={'button'} onClick={handleLogout} color="#23A6F0" underline="none">Logout</Link>
 
        </>
           ):
           (
             <>
           <Link component={RouterLink} to={'/login'} startIcon={<PersonOutlineIcon />}
-            sx={{ color: "#252B42", textTransform: "none" }} underline="none">Login </Link>
+            sx={{ color: "#23A6F0", textTransform: "none" }} underline="none">Login </Link>
               <span>/</span>
           <Link component={RouterLink} to={'/register'} startIcon={<PersonOutlineIcon />}
-            sx={{ color: "#252B42", textTransform: "none" }} underline="none">Register </Link>
+            sx={{ color: "#23A6F0", textTransform: "none" }} underline="none">Register </Link>
             </>
           )
         
