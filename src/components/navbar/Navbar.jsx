@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
 
     <AppBar position="static"
-      sx={{backgroundColor: "#b7b5b5",
+      sx={{backgroundColor: "#fff",
         color: "black",
         boxShadow: "none",
         borderBottom: "2px solid #252B42",

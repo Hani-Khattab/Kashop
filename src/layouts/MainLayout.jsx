@@ -9,7 +9,6 @@ export default function MainLayout() {
   return (
     <>
     <Navbar />
-     <Hero />
         <Container maxWidth='lg'>
         <Outlet />
         </Container>
