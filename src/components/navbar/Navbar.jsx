@@ -8,12 +8,20 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import { Button, Drawer, Link } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import useAuthStore from "../../store/useAuthStore";
 
 export default function Navbar() {
 
   const [openCart, setOpenCart] = useState(false);
+  const token = useAuthStore ( (state)=>state.token);
+  const logout = useAuthStore ( (state)=>state.logout);
+  const navigate = useNavigate();
+  const handleLogout = ()=>{
+    logout();
+    navigate('/login');
+  }
   return (
 
     <AppBar position="static"
@@ -30,10 +38,13 @@ export default function Navbar() {
         {/* This Is Menue Section in Navbar */}
         <Box sx={{display:{xs:'none' ,sm:'flex'}, gap: 3 }}>
           <Link component={RouterLink} to={'/'} color="inherit" underline="none">Home</Link>
+             
+
           <Link component={RouterLink} to={'/shop'} color="inherit" underline="none">Shop</Link>
           <Link component={RouterLink} to={'/about'} color="inherit" underline="none">About</Link>
           <Link component={RouterLink} to={'/blog'} color="inherit" underline="none">Blog</Link>
           <Link component={RouterLink} to={'/contact'} color="inherit" underline="none">Contacts</Link>
+
         </Box>
 
         <IconButton sx={{display:{xs:'flex' , sm:'none'} , color: "#252B42"  }}>
@@ -42,48 +53,64 @@ export default function Navbar() {
 
         {/* This Is Icons Section in Navbar */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          <Link component={RouterLink} to={'/login'} startIcon={<PersonOutlineIcon />}
-            sx={{ color: "#252B42", textTransform: "none" }} underline="none">Login </Link>
-              <span>/</span>
-          <Link component={RouterLink} to={'/register'} startIcon={<PersonOutlineIcon />}
-            sx={{ color: "#252B42", textTransform: "none" }} underline="none">Register </Link>
 
-          <IconButton sx={{ color: "#252B42" }}>
-            <SearchIcon />
-          </IconButton>
 
-          <IconButton
+    {token?
+     (
+        <>
+             <IconButton
             onClick={() => setOpenCart(true)}
             sx={{ color: "#252B42" }}
           >
             <ShoppingCartOutlinedIcon />
           </IconButton>
+          
+          <IconButton sx={{ color: "#252B42" }}>
+            <SearchIcon />
+          </IconButton>
+
+         
 
           <IconButton sx={{ color: "#252B42" }}>
             <FavoriteBorderOutlinedIcon />
           </IconButton>
+
+
+           <Link component={'button'} onClick={handleLogout} color="inherit" underline="none">Logout</Link>
+
+       </>
+          ):
+          (
+            <>
+          <Link component={RouterLink} to={'/login'} startIcon={<PersonOutlineIcon />}
+            sx={{ color: "#252B42", textTransform: "none" }} underline="none">Login </Link>
+              <span>/</span>
+          <Link component={RouterLink} to={'/register'} startIcon={<PersonOutlineIcon />}
+            sx={{ color: "#252B42", textTransform: "none" }} underline="none">Register </Link>
+            </>
+          )
+        
+        }
+
         </Box>
       </Toolbar>
-      <Drawer
-        anchor="right"
-        open={openCart}
-        onClose={() => setOpenCart(false)}
-      >
-  <Box sx={{ width: 300, p: 2 }}>
-    <h3>Shopping Cart</h3>
-    <p>No items yet</p>
 
-    <Button
-      component={RouterLink}
-      to="/cart"
-      onClick={() => setOpenCart(false)}
-      fullWidth
-      variant="contained"
-      sx={{ mt: 2 }}
-    >
-      View Cart
-    </Button>
-  </Box>
+  <Drawer
+    anchor="right"
+    open={openCart}
+    onClose={() => setOpenCart(false)}>
+      <Box sx={{ width: 300, p: 2 }}>
+        <h3>Shopping Cart</h3>
+        <p>No items yet</p>
+      <Button
+        component={RouterLink}
+        to="/cart"
+        onClick={() => setOpenCart(false)}
+        fullWidth
+        variant="contained"
+        sx={{ mt: 2 }}>View Cart
+        </Button>
+      </Box>
 </Drawer>
     </AppBar>
   );

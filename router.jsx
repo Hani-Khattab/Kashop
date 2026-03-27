@@ -10,6 +10,7 @@ import Contact from "./src/pages/contact/Contact.jsx";
 import About from "./src/pages/About/About.jsx";
 import ProductsDetails from "./src/pages/products/ProductsDetails.jsx";
 import CategoriesPage from "./src/pages/Categories/CategoriesPage.jsx";
+import ProtectedRouter from "./src/ProtectedRouter.jsx";
 
 
 const router =  createBrowserRouter([
@@ -22,9 +23,12 @@ const router =  createBrowserRouter([
                 element:<Home />
             },
             {
+                
                 path:'cart',
                 element:
+                <ProtectedRouter>
                 <Cart />
+                </ProtectedRouter>
             },
             {
                 path:'login',
