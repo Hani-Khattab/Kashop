@@ -1,11 +1,11 @@
 import React from 'react'
 import useCart from '../../hooks/useCart'
-import { Box, Typography } from '@mui/material';
+import { Box, Button, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from '@mui/material';
 import Loader from '../../ui/Loader/Loader';
 
 export default function Cart() {
   const {data,isError,isLoading,error} = useCart();
- console.log(data);
+  console.log(data);
 
       if (isLoading) return <Loader />;
       if (isError) return <Box color={"red"}>{error.message}</Box>;
@@ -15,6 +15,70 @@ export default function Cart() {
   return (
    <Box className="cart" sx={{py:5}}>
     <Typography component={'h1'}>My Cart</Typography>
+
+    <TableContainer>
+     <Table>
+      <TableHead>
+        <TableRow>
+          <TableCell>
+            Product Name
+          </TableCell>
+
+          <TableCell>
+            Price
+          </TableCell>
+
+
+          <TableCell>
+             Quantity
+          </TableCell>
+
+
+          <TableCell>
+             Total Price
+          </TableCell>
+
+          <TableCell>
+             Action 
+          </TableCell>
+
+        </TableRow>
+      </TableHead>
+
+      <TableBody>
+        {data.items.map( item=>(
+          <TableRow>
+            <TableCell>
+              {item.productName}
+            </TableCell>
+
+            <TableCell>
+              {item.price}$
+            </TableCell>
+
+            <TableCell>
+              {item.count}
+            </TableCell> 
+
+            <TableCell>
+              {item.count * item.price }$
+            </TableCell>
+
+            <TableCell>
+             <Button color='error' variant='contained'>Remove</Button>
+            </TableCell>
+          </TableRow>
+        ))}
+      </TableBody>
+
+        <TableFooter>
+          <TableCell colSpan={5} sx={{fontWeight:800}}>
+            Total : {data.cartTotal}
+          </TableCell>
+        </TableFooter>
+
+     </Table>
+    </TableContainer>
    </Box>
   )
 }

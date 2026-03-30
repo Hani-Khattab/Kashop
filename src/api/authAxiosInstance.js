@@ -32,7 +32,7 @@ authAxiosInstance.interceptors.response.use((response)=>response,async (error)=>
         const newAccessToken = refreshResponse.data.accessToken;
         useAuthStore.getState().setToken(newAccessToken);
         
-        originalRequest.headres.Authorization = `Bearer ${newAccessToken}`
+        originalRequest.headers.Authorization = `Bearer ${newAccessToken}`
         return authAxiosInstance ( originalRequest);
         }catch(error){
             console.log("error");
