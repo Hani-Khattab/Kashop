@@ -2,10 +2,11 @@ import React from 'react'
 import useCart from '../../hooks/useCart'
 import { Box, Button, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from '@mui/material';
 import Loader from '../../ui/Loader/Loader';
+import useRemoveFromCart from '../../hooks/useRemoveFromCart';
 
 export default function Cart() {
   const {data,isError,isLoading,error} = useCart();
-  console.log(data);
+  const {mutate,isPending} = useRemoveFromCart();
 
       if (isLoading) return <Loader />;
       if (isError) return <Box color={"red"}>{error.message}</Box>;
@@ -65,7 +66,7 @@ export default function Cart() {
             </TableCell>
 
             <TableCell>
-             <Button color='error' variant='contained'>Remove</Button>
+             <Button disabled={isPending} color='error' variant='contained' onClick={()=>mutate(item.productId)}>Remove</Button>
             </TableCell>
           </TableRow>
         ))}
