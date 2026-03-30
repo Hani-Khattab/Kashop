@@ -7,7 +7,7 @@ export default function useCategories(limit=4) {
      return response.data;
     }
     const query = useQuery({
-       queryKey:['categries','en',limit], 
+       queryKey:['categories','en',limit], 
        queryFn:getCategories,
        staleTime:1000*60*5
     });

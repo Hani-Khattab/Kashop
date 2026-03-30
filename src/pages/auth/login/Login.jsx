@@ -1,10 +1,10 @@
 import { Box, Button, Checkbox, FormControlLabel, TextField, Typography ,Link } from '@mui/material'
-import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { loginSchema } from '../../../validation/loginSchema';
 import useAuthStore from '../../../store/useAuthStore';
+import axiosInstance from '../../../api/axiosInstance';
 
 export default function Login() {
 const setToken = useAuthStore ( (state)=>state.setToken);
@@ -16,7 +16,7 @@ const {register,handleSubmit,formState:{errors}} = useForm({
 
 const loginForm = async(values)=>{
       try{ 
-        const response = await axios.post(`https://knowledgeshop.runasp.net/api/auth/Account/Login`,values);
+        const response = await axiosInstance.post(`auth/Account/Login`,values);
         if (response.status === 200){
           setToken(response.data.accessToken);
           navigate('/');
