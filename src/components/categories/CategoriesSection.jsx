@@ -17,8 +17,9 @@ export default function CategoriesSection() {
     <Box className= "categories" py={3}></Box>
       <Typography component={'h2'} variant="h4" display={'flex'} justifyContent={'center'}>Categories</Typography>
      <Grid container spacing={4} justifyContent="center">
-  {data.response.data.map((category) => (
-    <Grid item xs={12} sm={6} md={4} lg={3} >
+        {data.response.data.map((category) => (
+    <Grid size={{xs: 12, sm: 6, md: 4, lg: 3}} 
+     key={category._id || category.id}>
       <Category category={category} />
     </Grid>
   ))}

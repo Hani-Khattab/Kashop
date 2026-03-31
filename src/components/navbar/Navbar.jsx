@@ -7,16 +7,20 @@ import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import { Button, Drawer, Link } from "@mui/material";
+import { Badge, Button, Drawer, Link } from "@mui/material";
 import { Link as RouterLink, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import useAuthStore from "../../store/useAuthStore";
+import useCart from "../../hooks/useCart";
 
 export default function Navbar() {
 
   const [openCart, setOpenCart] = useState(false);
   const token = useAuthStore ( (state)=>state.token);
   const logout = useAuthStore ( (state)=>state.logout);
+  const {data} = useCart();
+  const cartCount = data?.items?.length || 0;
+  console.log(cartCount);
   const navigate = useNavigate();
   const handleLogout = ()=>{
     logout();
@@ -53,17 +57,24 @@ export default function Navbar() {
 
         {/* This Is Icons Section in Navbar */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-
-
     {token?
      (
         <>
-             <IconButton
-            onClick={() => setOpenCart(true)}
-            sx={{ color: "#23A6F0" }}
-          >
-            <ShoppingCartOutlinedIcon />
-          </IconButton>
+      <IconButton onClick={() => setOpenCart(true)}
+  sx={{position: "relative",backgroundColor: "#f5f9ff",borderRadius: "12px",p: 1.2,transition: "0.3s","&:hover": {backgroundColor: "#e3f2fd",transform: "scale(1.05)",},}}>
+  <Badge badgeContent={cartCount} color="error"
+    sx={{
+      "& .MuiBadge-badge": {
+        fontSize: "0.7rem",
+        height: "18px",
+        minWidth: "18px",
+        borderRadius: "50%",
+      },
+    }}
+  >
+    <ShoppingCartOutlinedIcon sx={{ color: "#23A6F0" }} />
+  </Badge>
+</IconButton>
           
           <IconButton sx={{ color: "#23A6F0" }}>
             <SearchIcon />
@@ -110,7 +121,9 @@ export default function Navbar() {
         variant="contained"
         sx={{ mt: 2 }}>View Cart
         </Button>
+        
       </Box>
+
 </Drawer>
     </AppBar>
   );
