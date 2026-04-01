@@ -6,7 +6,7 @@ import home3 from "../../assets/img/home/home3.webp";
 export default function PromoSection() {
   return (
     <Box className="promoSection" sx={{ py: { xs: 4, md: 6 } }}>
-      <Container>
+      <Container  maxWidth="lg">
         <Box
           sx={{
             display: "flex",

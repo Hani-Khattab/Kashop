@@ -4,6 +4,7 @@ import CategoriesSection from '../../components/categories/CategoriesSection'
 import Hero from '../../components/Hero/Hero'
 import BrandsSection from '../../components/Brands/BrandsSection'
 import PromoSection from '../../components/Promo/PromoSection'
+import FeaturedSection from '../../components/Feature/FeaturedSection'
 
 export default function Home() {
 
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <BrandsSection />
       <PromoSection />
+      <FeaturedSection />
       <CategoriesSection />
       <Products />
     </div>
