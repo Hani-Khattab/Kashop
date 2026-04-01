@@ -6,7 +6,7 @@ import service3 from "../../assets/img/services/service3.webp";
 export default function ServicesSection() {
   return (
     <Box sx={{ py: { xs: 6, md: 10 } }}>
-      <Container>
+      <Container maxWidth="lg">
         <Box textAlign="center" mb={6}>
           <Typography fontSize={14} color="gray">
             Featured Products

@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, Grid, Typography } from "@mui/material";
+import { Box, Card, CardContent, Container, Grid, Typography } from "@mui/material";
 import useCategories from "../../hooks/useCategories";
 import Loader from "../../ui/Loader/Loader";
 import { Link } from "react-router-dom";
@@ -12,7 +12,8 @@ export default function CategoriesSection() {
 
   return (
     <>
-      <Box className="categories" py={3}></Box>
+      <Box className="categories" py={3}>
+        <Container>
       <Typography
         component={"h2"}
         variant="h4"
@@ -34,6 +35,8 @@ export default function CategoriesSection() {
 
       <Box display={"flex"} justifyContent={"center"} mt={2}>
         <Link to="/categories">Show More</Link>
+      </Box>
+      </Container>
       </Box>
     </>
   );
