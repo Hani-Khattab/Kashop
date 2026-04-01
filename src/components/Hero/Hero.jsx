@@ -6,9 +6,9 @@ import "swiper/css/pagination";
 
 import { EffectFade, Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Box, Typography, Button } from "@mui/material";
-import hero1 from "../../assets/img/hero1.jpg";
-import hero2 from "../../assets/img/hero2.jpg";
-import hero3 from "../../assets/img/hero3.jpg";
+import hero1 from "../../assets/img/Hero/hero1.jpg";
+import hero2 from "../../assets/img/Hero/hero2.jpg";
+import hero3 from "../../assets/img/Hero/hero3.jpg";
 const slides = [
   {
     image: hero1,

@@ -1,11 +1,11 @@
 import { Box, Container } from "@mui/material";
 
-import aws from "../../assets/img/aws.webp";
-import hooli from "../../assets/img/hooli.webp";
-import lyft from "../../assets/img/lyft.webp";
-import Vector1 from "../../assets/img/Vector1.webp";
-import Vector2 from "../../assets/img/Vector2.webp";
-import stripe from "../../assets/img/stripe.webp";
+import aws from "../../assets/img/Brands/aws.webp";
+import hooli from "../../assets/img/Brands/hooli.webp";
+import lyft from "../../assets/img/Brands/lyft.webp";
+import Vector1 from "../../assets/img/Brands/Vector1.webp";
+import Vector2 from "../../assets/img/Brands/Vector2.webp";
+import stripe from "../../assets/img/Brands/stripe.webp";
 
 const brands = [hooli, lyft, Vector1, stripe, aws, Vector2];
 

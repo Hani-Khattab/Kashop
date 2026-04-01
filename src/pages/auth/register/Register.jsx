@@ -1,5 +1,5 @@
 import { Box, Typography,TextField, Button, CircularProgress} from '@mui/material'
-import RegisterImg from "../../../assets/img/RegisterImg.png";
+import RegisterImg from "../../../assets/img/register/RegisterImg.png";
 import { Link } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import { useForm } from 'react-hook-form';
