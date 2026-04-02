@@ -33,6 +33,7 @@ const loginForm = async(values)=>{
 <section  className='Login' >
     
   <Box component={"section"} display={"flex"} justifyContent={'center'} alignItems={'center'} minHeight={"80vh"}>
+    
     <Box className="login-form" width={{ xs: "95%", md: "40%" }}
         sx={{ backgroundColor: "white",p: 4,borderRadius: 3,boxShadow: 5}}>
       <Typography component={"h1"} variant="h4" color="#252B42" fontWeight={700} textAlign={"center"}>Sign In</Typography>

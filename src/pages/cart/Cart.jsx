@@ -1,16 +1,18 @@
 import React from 'react'
 import useCart from '../../hooks/useCart'
-import { Box, Button, IconButton, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from '@mui/material';
+import { Box, Button, Container, IconButton, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from '@mui/material';
 import Loader from '../../ui/Loader/Loader';
 import useRemoveFromCart from '../../hooks/useRemoveFromCart';
 import useUpdateCartItem from '../../hooks/useUpdateCartItem';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cart() {
   const {data,isError,isLoading,error} = useCart();
   const {mutate:removeItem,isPending} = useRemoveFromCart();
   const {mutate:updateItem,isPending:isPendingUpdate} = useUpdateCartItem();
+  const navigate = useNavigate();
 
   const handleUpdateQyt = (productId , action)=>{
     const item = data.items.find( (i)=>{
@@ -33,6 +35,7 @@ export default function Cart() {
  
   return (
    <Box className="cart" sx={{py:5}}>
+    <Container>
     <Typography component={'h1'}>My Cart</Typography>
 
     <TableContainer>
@@ -177,6 +180,11 @@ export default function Cart() {
 
      </Table>
     </TableContainer>
+    <Box sx={{display:'flex' , gap:3}}>
+    <Button color="success" variant='contained' sx={{flex:1 }} onClick={()=>navigate('/checkout')}>Buy Now </Button>
+    <Button variant='contained'  sx={{flex:1 }} onClick={()=>navigate('/')} >Continue Shopping</Button>
+    </Box>
+    </Container>
    </Box>
   )
 }

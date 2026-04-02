@@ -5,9 +5,8 @@ import "swiper/css/navigation";
 import { Navigation, Autoplay } from "swiper/modules";
 import { Box, Typography, Button } from "@mui/material";
 
-import hero1 from "../../assets/img/Hero/shop-hero-1.jpg";
-import hero2 from "../../assets/img/Hero/Herovita2.webp";
-
+import hero1 from "../../assets/img/Hero/herovita1.webp";
+import hero2 from "../../assets/img/Hero/herovita2.webp"
 const slides = [
   {
     image: hero1,

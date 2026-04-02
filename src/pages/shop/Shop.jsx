@@ -6,7 +6,6 @@ export default function Shop() {
   return (
     <div>
       <CategoriesSection />
-      <Products />
       
     </div>
   )
