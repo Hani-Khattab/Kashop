@@ -5,12 +5,12 @@ import useAuthStore from "../store/useAuthStore";
 const authAxiosInstance = axios.create({
     baseURL: 'https://knowledgeshop.runasp.net/api',
     headers: {
-        'Accept-Language': 'en',
+        'Accept-Language': 'i18next.language',
     },
     withCredentials: true
 });
 
-// ✅ request interceptor
+//  request interceptor
 authAxiosInstance.interceptors.request.use((config) => {
     const token = useAuthStore.getState().token;
 
@@ -22,7 +22,7 @@ authAxiosInstance.interceptors.request.use((config) => {
     return config;
 });
 
-// ✅ response interceptor
+//  response interceptor
 authAxiosInstance.interceptors.response.use(
     (response) => response,
     async (error) => {

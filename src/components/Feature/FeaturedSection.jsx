@@ -2,8 +2,10 @@ import React from "react";
 import { Box, Container, Typography } from "@mui/material";
 import feature1 from "../../assets/img/feature/feature1.webp";
 import feature2 from "../../assets/img/feature/feature2.webp";
+import { useTranslation } from "react-i18next";
 
 export default function FeaturedSection() {
+  const {t} = useTranslation();
   return (
     <Box sx={{ py: { xs: 6, md: 10 } }}>
       <Container>
@@ -66,7 +68,7 @@ export default function FeaturedSection() {
               variant="subtitle2"
               sx={{ color: "#4a90e2", fontWeight: "bold", mb: 1 }}
             >
-              Featured Products
+               {t('Featured Products')} 
             </Typography>
 
             <Typography variant="h4" sx={{ fontWeight: 700, mb: 3 }}>

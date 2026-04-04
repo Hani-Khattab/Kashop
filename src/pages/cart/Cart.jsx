@@ -7,12 +7,15 @@ import useUpdateCartItem from '../../hooks/useUpdateCartItem';
 import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from "react-i18next";
+
 
 export default function Cart() {
   const {data,isError,isLoading,error} = useCart();
   const {mutate:removeItem,isPending} = useRemoveFromCart();
   const {mutate:updateItem,isPending:isPendingUpdate} = useUpdateCartItem();
   const navigate = useNavigate();
+  const {t} = useTranslation();
 
   const handleUpdateQyt = (productId , action)=>{
     const item = data.items.find( (i)=>{
@@ -36,7 +39,7 @@ export default function Cart() {
   return (
    <Box className="cart" sx={{py:5}}>
     <Container>
-    <Typography component={'h1'}>My Cart</Typography>
+    <Typography component={'h1'}>{t('My Cart')}</Typography>
 
     <TableContainer>
      <Table>
