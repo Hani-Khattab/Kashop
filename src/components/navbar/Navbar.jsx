@@ -155,6 +155,15 @@ export default function Navbar() {
               <IconButton sx={{ color: "#23A6F0" }}>
                 <FavoriteBorderOutlinedIcon />
               </IconButton>
+
+              <Link
+                component={RouterLink}
+                to={"profile"}
+                sx={{ color: "#23A6F0", textTransform: "none" }}
+                underline="none"
+              >
+                 {t('Profile')}
+              </Link>
               
        <Button onClick={changeLanguage}>
           {i18next.language === "ar"?"EN" :"AR"}

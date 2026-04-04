@@ -20,7 +20,8 @@ i18n
           "Categories": "Categories",
           "Products": "Products",
           "Featured Products":"Featured Products",
-          "Logout":"Logout"
+          "Logout":"Logout",
+          "Profile":"Profile",
 
           
         }
@@ -38,7 +39,8 @@ i18n
           "Categories": "التصنيفات ",
           "Products": "المنتجات",
           "Featured Products":"المنتجات المميزة",
-          "Logout":"تسجيل الخروج"
+          "Logout":"تسجيل الخروج",
+          "Profile":"الملف الشخصي"
 
           
         }

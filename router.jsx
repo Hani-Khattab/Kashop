@@ -12,6 +12,9 @@ import ProductsDetails from "./src/pages/products/ProductsDetails.jsx";
 import CategoriesPage from "./src/pages/Categories/CategoriesPage.jsx";
 import ProtectedRouter from "./src/ProtectedRouter.jsx";
 import Checkout from "./src/pages/Checkout/Checkout.jsx";
+import Profile from "./src/pages/profile/Profile.jsx";
+import ProfileInfo from "./src/pages/profile/ProfileInfo.jsx";
+import ProfileOrders from "./src/pages/profile/ProfileOrders.jsx";
 
 
 const router =  createBrowserRouter([
@@ -30,6 +33,24 @@ const router =  createBrowserRouter([
                 <ProtectedRouter>
                 <Cart />
                 </ProtectedRouter>
+            },
+            {
+                
+                path:'profile',
+                element:
+                <ProtectedRouter>
+                <Profile />
+                </ProtectedRouter>,
+                children:[
+                    {
+                        index:true,
+                        element:<ProfileInfo />
+                    },
+                    {
+                        path:'orders',
+                        element:<ProfileOrders />
+                    }
+                ]
             },
              {
                 
