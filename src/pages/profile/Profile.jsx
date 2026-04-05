@@ -2,13 +2,14 @@ import {
   Box,
   Typography,
   Divider,
-  Button
+  Button,
+  Avatar
 } from '@mui/material'
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import SupportAgentIcon from "@mui/icons-material/SupportAgent";
-import { Link, Links, Outlet, Link as RouterLink } from "react-router-dom";
+import { Outlet, Link as RouterLink } from "react-router-dom";
 import useProfile from '../../hooks/useProfile'
 import Loader from '../../ui/Loader/Loader';
 
@@ -26,6 +27,7 @@ export default function Profile() {
       {/* Sidebar */}
       <Box sx={{ width: 260, p: 2 }}>
         <Box sx={{ bgcolor: "#fff", p: 2, borderRadius: 3 }}>
+          
 
           <Typography variant="subtitle2" color="text.secondary" marginBottom={5} textAlign={'center'}>
             DASHBOARD
