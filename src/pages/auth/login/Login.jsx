@@ -52,7 +52,12 @@ const loginForm = async(values)=>{
 
       <Box display={'flex'} justifyContent={'space-between'}alignItems={'center'}>
         <FormControlLabel  control={<Checkbox />} label="Remember me" /> 
-      <Typography textAlign={"right"} fontSize={14} sx={{ cursor: "pointer", color: "#3c4b86" }}>Forgot Password?</Typography>
+     <Typography
+        component={RouterLink}
+        to="/ForgetPassword"
+        fontSize={14}
+        sx={{ color: "#3c4b86", textDecoration: "none" }}
+      > Forgot Password? </Typography>
        
        </Box>
 

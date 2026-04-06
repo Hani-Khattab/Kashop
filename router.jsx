@@ -15,6 +15,8 @@ import Checkout from "./src/pages/Checkout/Checkout.jsx";
 import Profile from "./src/pages/profile/Profile.jsx";
 import ProfileInfo from "./src/pages/profile/ProfileInfo.jsx";
 import ProfileOrders from "./src/pages/profile/ProfileOrders.jsx";
+import ForgetPassword from "./src/pages/auth/ForgetPassword/ForgetPassword.jsx";
+import ResetPassword from "./src/pages/auth/ResetPassword/ResetPassword.jsx";
 
 
 const router =  createBrowserRouter([
@@ -61,8 +63,16 @@ const router =  createBrowserRouter([
                 </ProtectedRouter>
             },
             {
-                path:'login',
+                path:'Login',
                 element:<Login />
+            },
+            {
+                path:'ForgetPassword',
+                element:<ForgetPassword />
+            },
+            {
+                path:'ResetPassword',
+                element:<ResetPassword />
             },
             {
                 path:'categories',
