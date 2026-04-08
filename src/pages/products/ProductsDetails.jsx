@@ -1,9 +1,9 @@
-import React from 'react'
 import { useParams } from 'react-router-dom'
 import useProductDetails from '../../hooks/useProductDetails';
 import Loader from '../../ui/Loader/Loader';
-import { Box, Button, Card, CardMedia, Rating, Typography } from '@mui/material';
+import { Box, Button, Card, CardMedia, Container, Rating, Typography } from '@mui/material';
 import useAddToCart from '../../hooks/useAddToCart';
+import Reviews from '../../components/Review/Review';
 
 export default function ProductsDetails() {
  
@@ -19,9 +19,10 @@ export default function ProductsDetails() {
 
   return (
     <Box component={'div'} className='product_details' py={4}>
+      <Container>
       <Card p={2} sx={{display:'flex' , padding:"30px" , flexWrap:"wrap" , gap:7}}>
         <CardMedia component={"img"} image={product_details.image}
-        sx={{width:{xs:"100%",md:300}}}></CardMedia>
+        sx={{width:{xs:"100%",md:"300px"}}}></CardMedia>
 
         <Box sx={{flex:1}} display={'flex'} flexDirection={'column'}>
           <Typography component={'h1'} variant='h3' gutterBottom>{product_details.name}</Typography>
@@ -35,6 +36,11 @@ export default function ProductsDetails() {
           } )}>Add To Cart </Button>
         </Box>
       </Card>
-    </Box>
+     
+        <Reviews  /> 
+        
+</Container> 
+  </Box>
+    
   )
 }

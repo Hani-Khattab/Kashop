@@ -3,7 +3,7 @@ import { create } from "zustand";
 
 
 const useThemeStore = create( (set)=>({
-    mode:'dark',
+    mode:'light',
     toggleTheme:()=>{
         set((state)=>({
             mode:state.mode == 'light'?'dark': 'light'

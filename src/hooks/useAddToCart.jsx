@@ -13,6 +13,9 @@ export default function useAddToCart() {
             queryClient.invalidateQueries( 
                 { queryKey: ['carts','en'] }
              )
+            queryClient.refetchQueries(
+                { queryKey: ['carts', 'en'] }
+            );
         }
     })
    

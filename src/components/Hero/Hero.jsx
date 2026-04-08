@@ -41,7 +41,7 @@ export default function Hero() {
         <SwiperSlide key={index}>
           <Box
             sx={{
-              height: "90vh",
+              height: "80vh",
               backgroundImage: `url(${slide.image})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
