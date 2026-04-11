@@ -2,6 +2,7 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import axiosInstance from "../../../api/axiosInstance";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify"; // 🔥 إضافة فقط
 
 export default function ForgotPassword() {
   const { register, handleSubmit } = useForm();
@@ -10,6 +11,9 @@ export default function ForgotPassword() {
   const onSubmit = async (data) => {
     try {
       await axiosInstance.post("auth/Account/SendCode", data);
+
+      // 🔥 إضافة الرسالة هنا فقط
+      toast.success("Code sent successfully to your email");
 
       navigate("/ResetPassword", {
         state: { email: data.email },
@@ -28,7 +32,6 @@ export default function ForgotPassword() {
         p={4}
         borderRadius={3}
         boxShadow={4}
-        
       >
         <Typography variant="h5" fontWeight={600} mb={2}>
           Forgot Password
