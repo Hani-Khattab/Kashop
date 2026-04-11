@@ -2,22 +2,24 @@ import { Box, Container, Typography } from "@mui/material";
 import service1 from "../../assets/img/services/service1.webp";
 import service2 from "../../assets/img/services/service2.webp";
 import service3 from "../../assets/img/services/service3.webp";
+import { useTranslation } from "react-i18next";
 
 export default function ServicesSection() {
+    const { t } = useTranslation();
   return (
     <Box sx={{ py: { xs: 6, md: 10 } }}>
       <Container maxWidth="lg">
         <Box textAlign="center" mb={6}>
           <Typography fontSize={14} color="gray">
-            Featured Products
+            {t("Featured Products")}
           </Typography>
 
           <Typography fontSize={28} fontWeight={700} color="#252B42" my={1}>
-            THE BEST SERVICES
+          {t("THE BEST SERVICES")}
           </Typography>
 
           <Typography color="gray">
-            Problems trying to resolve the conflict between
+            {t("Problems trying to resolve the conflict between")}
           </Typography>
         </Box>
 
@@ -43,11 +45,11 @@ export default function ServicesSection() {
             />
 
             <Typography fontWeight={600} mb={1}>
-              Easy Wins
+              {t("Easy Wins")}
             </Typography>
 
             <Typography color="gray">
-              Get your best looking smile now!
+              {t("Get your best looking smile now!")}
             </Typography>
           </Box>
 
@@ -63,11 +65,11 @@ export default function ServicesSection() {
             />
 
             <Typography fontWeight={600} mb={1}>
-              Fast Delivery
+              {t("Fast Delivery")}
             </Typography>
 
             <Typography color="gray">
-              Get your products delivered quickly!
+              {t("Get your products delivered quickly!")}
             </Typography>
           </Box>
 
@@ -83,10 +85,10 @@ export default function ServicesSection() {
             />
 
             <Typography fontWeight={600} mb={1}>
-              Secure Payment
+              {t("Secure Payment")}
             </Typography>
 
-            <Typography color="gray">100% secure payment methods!</Typography>
+            <Typography color="gray">{t("100% secure payment methods!")}</Typography>
           </Box>
         </Box>
       </Container>

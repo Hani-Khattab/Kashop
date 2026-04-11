@@ -59,7 +59,7 @@ export default function Navbar() {
           underline="none"
         >
           {" "}
-          Kashop{" "}
+          {t("Kashop")}{" "}
         </Link>
 
         {/* This Is Menue Section in Navbar */}

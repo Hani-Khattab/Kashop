@@ -12,13 +12,19 @@ import SupportAgentIcon from "@mui/icons-material/SupportAgent";
 import { Outlet, Link as RouterLink } from "react-router-dom";
 import useProfile from '../../hooks/useProfile'
 import Loader from '../../ui/Loader/Loader';
+import { useTranslation } from "react-i18next";
+
 
 export default function Profile() {
+  const { t } = useTranslation();
   const { data, isLoading, isError, error } = useProfile();
 
   if (isLoading) return <Loader />;
   if (isError) return <Box color="red">{error.message}</Box>;
   console.log(data);
+
+    
+
   
 
   return (
@@ -30,7 +36,7 @@ export default function Profile() {
           
 
           <Typography variant="subtitle2" color="text.secondary" marginBottom={5} textAlign={'center'}>
-            DASHBOARD
+            {t("DASHBOARD")}
           </Typography>
 
            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 2 }}>
@@ -41,7 +47,7 @@ export default function Profile() {
     variant="contained"
     startIcon={<ShoppingCartIcon />}
   >
-    Orders
+    {t("Orders")}
   </Button>
 
   <Button
@@ -49,7 +55,7 @@ export default function Profile() {
     variant="contained"
     startIcon={<SupportAgentIcon />}
   >
-    Support Tickets
+    {t("Support Tickets")}
   </Button>
 
   <Button
@@ -57,14 +63,14 @@ export default function Profile() {
     variant="contained"
     startIcon={<FavoriteIcon />}
   >
-    Wishlist
+    {t("Wishlist")}
   </Button>
 </Box>
 
           <Divider sx={{ my: 2 }} />
 
           <Typography variant="subtitle2" color="text.secondary" alignItems={'center'} marginBottom={3}>
-            ACCOUNT SETTINGS
+            {t("ACCOUNT SETTINGS")}
           </Typography>
           <Box display={'flex'} flexDirection={'column'} >
            <Button
@@ -72,13 +78,13 @@ export default function Profile() {
                 to={""}
                 variant="contained"
                 sx={{ fontWeight: "bold", color: "#fff" }}
-                > Profile Info </Button>
+                > {t("Profile Info")} </Button>
                 
 
           </Box>
 
           <Button sx={{marginTop:5}} to={"logout"} variant='contained'  fullWidth component={"button"} color="error" >
-            Logout
+            {t("Logout")}
           </Button>
 
         </Box>

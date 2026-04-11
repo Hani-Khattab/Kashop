@@ -72,7 +72,7 @@ export default function FeaturedSection() {
             </Typography>
 
             <Typography variant="h4" sx={{ fontWeight: 700, mb: 3 }}>
-              We love what we do
+              {t("We love what we do")}
             </Typography>
 
             <Typography
@@ -80,8 +80,7 @@ export default function FeaturedSection() {
               color="text.secondary"
               sx={{ mb: 2, fontSize: { xs: 15, md: 17 } }}
             >
-              Problems trying to resolve the conflict between the two major
-              realms of Classical physics: Newtonian mechanics.
+            {t("Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics.")}.
             </Typography>
 
             <Typography
@@ -89,8 +88,8 @@ export default function FeaturedSection() {
               color="text.secondary"
               sx={{ fontSize: { xs: 15, md: 17 } }}
             >
-              Problems trying to resolve the conflict between the two major
-              realms of Classical physics: Newtonian mechanics.
+           {t("Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics.")}.
+
             </Typography>
           </Box>
         </Box>

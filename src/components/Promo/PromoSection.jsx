@@ -2,8 +2,11 @@ import { Box, Container, Typography, Button } from "@mui/material";
 import home1 from "../../assets/img/home/home1.webp";
 import home2 from "../../assets/img/home/home2.webp";
 import home3 from "../../assets/img/home/home3.webp";
+import { useTranslation } from "react-i18next";
 
 export default function PromoSection() {
+    const { t } = useTranslation();
+  
   return (
     <Box className="promoSection" sx={{ py: { xs: 4, md: 6 } }}>
       <Container  maxWidth="lg">
@@ -48,7 +51,7 @@ export default function PromoSection() {
               }}
             >
               <Typography variant="h6" fontWeight={600}>
-                Top Product Of the Week
+                {t("Top Product Of the Week")}
               </Typography>
 
               <Button
@@ -60,7 +63,7 @@ export default function PromoSection() {
                   textTransform: "none",
                 }}
               >
-                Start Shopping
+                {t("Start Shopping")}
               </Button>
             </Box>
           </Box>
@@ -107,7 +110,7 @@ export default function PromoSection() {
                 }}
               >
                 <Typography fontWeight={600}>
-                  Discover Your Next Favorite
+                  {t("Discover Your Next Favorite")}
                 </Typography>
 
                 <Button
@@ -120,7 +123,7 @@ export default function PromoSection() {
                     textTransform: "none",
                   }}
                 >
-                  Explore Items
+                  {t("Explore Items")}
                 </Button>
               </Box>
             </Box>
@@ -158,7 +161,7 @@ export default function PromoSection() {
                 }}
               >
                 <Typography fontWeight={600}>
-                  New Collection
+                  {t("New Collection")}
                 </Typography>
 
                 <Button
@@ -171,7 +174,7 @@ export default function PromoSection() {
                     textTransform: "none",
                   }}
                 >
-                  Shop Now
+                  {t("SHOP NOW")}
                 </Button>
               </Box>
             </Box>
