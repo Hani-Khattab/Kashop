@@ -10,6 +10,19 @@ export default function ProfileOrders() {
 
   const orders = data.orders;
 
+  const getPaymentColor = (status) => {
+    switch (status?.toLowerCase()) {
+      case 'paid':
+        return 'success';
+      case 'pending':
+        return 'warning';
+      case 'failed':
+        return 'error';
+      default:
+        return 'default';
+    }
+  };
+
   return (
     <Box p={3} >
       <Typography variant="h5" mb={3}>
@@ -18,21 +31,31 @@ export default function ProfileOrders() {
 
       <Grid container spacing={3} >
         {orders.map(order => (
-          <Grid item xs={12} sm={6} md={3}>
+          <Grid item xs={12} sm={6} md={3} key={order.id}>
             <Card sx={{ borderRadius: 3, boxShadow: 3 }}>
               <CardContent>
+
                 <Typography variant="body1" fontWeight="bold">
                   Order #{order.id}
                 </Typography>
+
                 <Typography variant="body2" color="text.secondary">
                   Amount: {order.amountPaid}$
                 </Typography>
+
                 <Typography variant="body2">
                   Status: {order.status}
                 </Typography>
-                <Typography variant="body2">
-                  paymentStatus: {order.paymentStatus}
+
+                <Typography variant="body2" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                  paymentStatus:
+                  <Chip
+                    label={order.paymentStatus}
+                    color={getPaymentColor(order.paymentStatus)}
+                    size="small"
+                  />
                 </Typography>
+
                 <Typography variant="body2">
                   orderDate: {order.orderDate}
                 </Typography>

@@ -55,7 +55,7 @@ export default function Navbar() {
           component={RouterLink}
           to={"/"}
           variant="h6"
-          sx={{ fontWeight: "bold", color: "#252B42" }}
+          sx={{ fontWeight: "bold", color: "#121524" }}
           underline="none"
         >
           {" "}

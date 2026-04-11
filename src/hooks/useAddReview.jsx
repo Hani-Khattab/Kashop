@@ -1,6 +1,7 @@
 // useAddReview.js
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import authAxiosInstance from '../api/authAxiosInstance';
+import i18next from 'i18next';
 
 export default function useAddReview(id) {
   const queryClient = useQueryClient();
@@ -13,7 +14,7 @@ export default function useAddReview(id) {
       });
     },
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['product', id] });
+      queryClient.invalidateQueries({ queryKey: ['ProductDetails',i18next.language, id] });
     }
   });
 
