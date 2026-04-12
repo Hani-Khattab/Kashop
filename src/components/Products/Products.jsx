@@ -13,8 +13,11 @@ import Loader from "../../ui/Loader/Loader";
 import { Link } from "react-router-dom";
 import Product from "../../ui/product/Product";
 import useProductFilter from "../../hooks/useProductFilter";
+import { useTranslation } from "react-i18next";
 
 export default function Products() {
+      const {t} = useTranslation();
+  
 
   const [filters, setFilters] = useState({
     page: 1,
@@ -38,9 +41,11 @@ export default function Products() {
           textAlign="center"
           mb={2}
         >
-          Feature Products
+          {t("Feature Products")}
         </Typography>
-    <Typography component={'p'} variant="body1" display={'flex'} justifyContent={'center'} color='grey' mb={2}>Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics </Typography>
+    <Typography component={'p'} variant="body1" display={'flex'} justifyContent={'center'} color='grey' mb={2}>
+      {t("Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics.")}
+       </Typography>
 
 <Box
   sx={{
@@ -65,7 +70,7 @@ export default function Products() {
       flexGrow: { xs: 1, sm: 0 }
     }}
   >
-    Showing {data?.response?.data?.length || 0} Products
+    {t("Showing")} {data?.response?.data?.length || 0} {t("Products")}
   </Typography>
 
   <Box sx={{ 
@@ -75,7 +80,7 @@ export default function Products() {
     width: { xs: "100%", sm: "auto" } 
   }}>
     <FormControl size="small" sx={{ flex: 1, minWidth: { xs: "0", sm: 160 } }}>
-      <InputLabel sx={{ fontSize: "0.85rem" }}>Sort By</InputLabel>
+      <InputLabel sx={{ fontSize: "0.85rem" }}>{t("Sort By")}</InputLabel>
       <Select
         value={filters.sortBy}
         label="Sort By"
@@ -92,12 +97,12 @@ export default function Products() {
           }))
         }
       >
-        <MenuItem value="price">Price</MenuItem>
+        <MenuItem value="price">{t("Price")}</MenuItem>
       </Select>
     </FormControl>
 
     <FormControl size="small" sx={{ flex: 1, minWidth: { xs: "0", sm: 160 } }}>
-      <InputLabel sx={{ fontSize: "0.85rem" }}>Order</InputLabel>
+      <InputLabel sx={{ fontSize: "0.85rem" }}>{t("Order")}</InputLabel>
       <Select
         value={String(filters.ascending)}
         label="Order"
@@ -114,8 +119,8 @@ export default function Products() {
           }))
         }
       >
-        <MenuItem value="true">Low to High</MenuItem>
-        <MenuItem value="false">High to Low</MenuItem>
+        <MenuItem value="true">{t("Low to High")}</MenuItem>
+        <MenuItem value="false"> {t("High to Low")} </MenuItem>
       </Select>
     </FormControl>
   </Box>

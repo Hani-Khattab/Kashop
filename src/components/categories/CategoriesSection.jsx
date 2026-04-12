@@ -3,8 +3,11 @@ import useCategories from "../../hooks/useCategories";
 import Loader from "../../ui/Loader/Loader";
 import { Link } from "react-router-dom";
 import Category from "../../ui/category/Category";
+import { useTranslation } from "react-i18next";
+
 
 export default function CategoriesSection() {
+    const {t} = useTranslation();
   const { data, isLoading, isError, error } = useCategories();
 
   if (isLoading) return <Loader />;
@@ -20,7 +23,7 @@ export default function CategoriesSection() {
         display={"flex"}
         justifyContent={"center"}
       >
-        Categories
+        {t("Categories")}
       </Typography>
       <Grid container spacing={4} justifyContent="center">
         {data.response.data.map((category) => (
@@ -34,7 +37,7 @@ export default function CategoriesSection() {
       </Grid>
 
       <Box display={"flex"} justifyContent={"center"} mt={2}>
-        <Link to="/categories">Show More</Link>
+        <Link to="/categories"> {t("Show More")} </Link>
       </Box>
       </Container>
       </Box>
