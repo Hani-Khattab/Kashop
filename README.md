@@ -15,6 +15,12 @@ A modern and scalable e-commerce web application built with **React + Vite**, fe
 * 🎨 Responsive UI with Material UI (MUI)
 
 ---
+🚀 Live Demo
+
+👉 https://kashop-pwg7.onrender.com
+
+---
+
 
 ## 🧰 Tech Stack
 
