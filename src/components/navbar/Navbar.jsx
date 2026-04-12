@@ -40,203 +40,244 @@ export default function Navbar() {
   };
 
   return (
-    <AppBar
-      position="static"
+   <AppBar
+  position="static"
+  sx={{
+    backgroundColor:"inherit",
+    color: "black",
+    boxShadow: "0 2px 10px rgba(0,0,0,0.05)",
+    borderBottom: "1px solid #eee",
+  }}
+>
+      <Toolbar sx={{ justifyContent: "space-between", py: 1 }}>
+
+    {/* Logo */}
+    <Link
+      component={RouterLink}
+      to={"/"}
+      variant="h6"
       sx={{
-        backgroundColor: "inherit",
-        color: "black",
-        boxShadow: "none",
-        borderBottom: "2px solid #252B42",
+        fontWeight: "bold",
+        color: "#121524",
+        letterSpacing: "1px",
+        fontSize: "1.4rem",
+        transition: "0.3s",
+        "&:hover": {
+          color: "#23A6F0",
+        },
+      }}
+      underline="none"
+    >
+      {t("Kashop")}
+    </Link>
+
+    {/* Menu */}
+    <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 4 }}>
+      {[
+        { label: "Home", path: "/" },
+        { label: "Shop", path: "/shop" },
+        { label: "About", path: "/about" },
+        { label: "Blog", path: "/blog" },
+        { label: "Contacts", path: "/contact" },
+      ].map((item) => (
+        <Link
+          key={item.label}
+          component={RouterLink}
+          to={item.path}
+          underline="none"
+          sx={{
+            color: "#737373",
+            fontWeight: 500,
+            position: "relative",
+            transition: "0.3s",
+            "&:hover": {
+              color: "#23A6F0",
+            },
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              width: "0%",
+              height: "2px",
+              bottom: -4,
+              left: 0,
+              backgroundColor: "#23A6F0",
+              transition: "0.3s",
+            },
+            "&:hover::after": {
+              width: "100%",
+            },
+          }}
+        >
+          {t(item.label)}
+        </Link>
+      ))}
+    </Box>
+
+    {/* Mobile Menu */}
+    <IconButton
+      sx={{
+        display: { xs: "flex", sm: "none" },
+        color: "#252B42",
+        backgroundColor: "#f5f5f5",
+        borderRadius: 2,
+        "&:hover": {
+          backgroundColor: "#e0e0e0",
+        },
       }}
     >
-      <Toolbar sx={{ justifyContent: "space-between" }}>
-        {/* This Is Logo Section in Navbar */}
-        <Link
-          component={RouterLink}
-          to={"/"}
-          variant="h6"
-          sx={{ fontWeight: "bold", color: "#121524" }}
-          underline="none"
-        >
-          {" "}
-          {t("Kashop")}{" "}
-        </Link>
+      <MenuRoundedIcon />
+    </IconButton>
 
-        {/* This Is Menue Section in Navbar */}
-        <Box sx={{ display: { xs: "none", sm: "flex" }, gap: 3 }}>
+    {/* Icons */}
+    <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+      {token ? (
+        <>
+          <IconButton
+            onClick={() => setOpenCart(true)}
+          >
+            <Badge
+              badgeContent={cartCount}
+              color="error"
+              sx={{
+                "& .MuiBadge-badge": {
+                  fontSize: "0.7rem",
+                  height: "18px",
+                  minWidth: "18px",
+                },
+              }}
+            >
+              <ShoppingCartOutlinedIcon sx={{ color: "#23A6F0" }} />
+            </Badge>
+          </IconButton>
+
+          <IconButton
+            sx={{
+              color: "#23A6F0",
+              transition: "0.3s",
+              "&:hover": {
+                backgroundColor: "#e3f2fd",
+                transform: "scale(1.1)",
+              },
+            }}
+          >
+            <SearchIcon />
+          </IconButton>
+
+          <IconButton
+            sx={{
+              color: "#23A6F0",
+              transition: "0.3s",
+              "&:hover": {
+                backgroundColor: "#e3f2fd",
+                transform: "scale(1.1)",
+              },
+            }}
+          >
+            <FavoriteBorderOutlinedIcon />
+          </IconButton>
+
           <Link
             component={RouterLink}
-            to={"/"}
-            color="#737373"
+            to={"profile"}
             underline="none"
+            sx={{
+              color: "#23A6F0",
+              fontWeight: 500,
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            }}
           >
-            {t("Home")}
+            {t("Profile")}
           </Link>
+
+          <Button onClick={changeLanguage}>
+            {i18next.language === "ar" ? "EN" : "AR"}
+          </Button>
+
+          <IconButton
+            onClick={toggleTheme}
+            sx={{
+              color: mode === "light" ? "#181212" : "#e6ad12",
+              transition: "0.3s",
+              "&:hover": {
+                backgroundColor: "rgba(0,0,0,0.05)",
+                transform: "scale(1.1)",
+              },
+            }}
+          >
+            {mode === "light" ? <DarkMode /> : <LightMode />}
+          </IconButton>
+
+          <Link
+            component={"button"}
+            onClick={handleLogout}
+            underline="none"
+            sx={{
+              color: "#23A6F0",
+              fontWeight: 500,
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            }}
+          >
+            {t("Logout")}
+          </Link>
+        </>
+      ) : (
+        <>
+          <Button onClick={changeLanguage}>
+            {i18next.language === "ar" ? "EN" : "AR"}
+          </Button>
+
+          <IconButton
+            onClick={toggleTheme}
+            sx={{
+              color: mode === "light" ? "#181212" : "#e6ad12",
+              "&:hover": {
+                transform: "scale(1.1)",
+              },
+            }}
+          >
+            {mode === "light" ? <DarkMode /> : <LightMode />}
+          </IconButton>
 
           <Link
             component={RouterLink}
-            to={"/shop"}
-            color="#737373"
+            to={"/login"}
             underline="none"
+            sx={{
+              color: "#23A6F0",
+              fontWeight: 500,
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            }}
           >
-            {t("Shop")}
+            {t("Login")}
           </Link>
+
+          <span>/</span>
+
           <Link
             component={RouterLink}
-            to={"/about"}
-            color="#737373"
+            to={"/register"}
             underline="none"
+            sx={{
+              color: "#23A6F0",
+              fontWeight: 500,
+              "&:hover": {
+                textDecoration: "underline",
+              },
+            }}
           >
-            {t("About")}
+            {t("Register")}
           </Link>
-          <Link
-            component={RouterLink}
-            to={"/blog"}
-            color="#737373"
-            underline="none"
-          >
-            {t("Blog")}
-          </Link>
-          <Link
-            component={RouterLink}
-            to={"/contact"}
-            color="#737373"
-            underline="none"
-          >
-            {t("Contacts")}
-          </Link>
-        </Box>
+        </>
+      )}
+    </Box>
 
-        <IconButton
-          sx={{ display: { xs: "flex", sm: "none" }, color: "#252B42" }}
-        >
-          <MenuRoundedIcon />
-        </IconButton>
-
-        {/* This Is Icons Section in Navbar */}
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
-          {token ? (
-            <>
-              <IconButton
-                onClick={() => setOpenCart(true)}
-                sx={{
-                  position: "relative",
-                  backgroundColor: "#f5f9ff",
-                  borderRadius: "12px",
-                  p: 1.2,
-                  transition: "0.3s",
-                  "&:hover": {
-                    backgroundColor: "#e3f2fd",
-                    transform: "scale(1.05)",
-                  },
-                }}
-              >
-                <Badge
-                  badgeContent={cartCount}
-                  color="error"
-                  sx={{
-                    "& .MuiBadge-badge": {
-                      fontSize: "0.7rem",
-                      height: "18px",
-                      minWidth: "18px",
-                      borderRadius: "50%",
-                    },
-                  }}
-                >
-                  <ShoppingCartOutlinedIcon sx={{ color: "#23A6F0" }} />
-                </Badge>
-              </IconButton>
-
-              <IconButton sx={{ color: "#23A6F0" }}>
-                <SearchIcon />
-              </IconButton>
-
-              <IconButton sx={{ color: "#23A6F0" }}>
-                <FavoriteBorderOutlinedIcon />
-              </IconButton>
-
-              <Link
-                component={RouterLink}
-                to={"profile"}
-                sx={{ color: "#23A6F0", textTransform: "none" }}
-                underline="none"
-              >
-                {t("Profile")}
-              </Link>
-              {/* This Button for Change language */}
-              <Button onClick={changeLanguage}>
-                {i18next.language === "ar" ? "EN" : "AR"}
-              </Button>
-
-              {/* This Button for Change Theme */}
-              <IconButton
-                onClick={toggleTheme}
-                sx={{
-                  color: mode === "light" ? "#181212" : "#e6ad12",
-                  transition: "0.3s",
-
-                  "&:hover": {
-                    backgroundColor: "rgba(0,0,0,0.05)",
-                    transform: "scale(1.1)",
-                  },
-                }}
-              >
-                {mode === "light" ? <DarkMode /> : <LightMode />}
-              </IconButton>
-
-              <Link
-                component={"button"}
-                onClick={handleLogout}
-                color="#23A6F0"
-                underline="none"
-              >
-                {t("Logout")}
-              </Link>
-            </>
-          ) : (
-            <>
-              <Button onClick={changeLanguage}>
-                {i18next.language === "ar" ? "EN" : "AR"}
-              </Button>
-
-              <IconButton
-                onClick={toggleTheme}
-                sx={{
-                  color: mode === "light" ? "#181212" : "#e6ad12",
-                  transition: "0.3s",
-
-                  "&:hover": {
-                    backgroundColor: "rgba(0,0,0,0.05)",
-                    transform: "scale(1.1)",
-                  },
-                }}
-              >
-                {mode === "light" ? <DarkMode /> : <LightMode />}
-              </IconButton>
-
-              <Link
-                component={RouterLink}
-                to={"/login"}
-                startIcon={<PersonOutlineIcon />}
-                sx={{ color: "#23A6F0", textTransform: "none" }}
-                underline="none"
-              >
-                {t("Login")}{" "}
-              </Link>
-              <span>/</span>
-              <Link
-                component={RouterLink}
-                to={"/register"}
-                startIcon={<PersonOutlineIcon />}
-                sx={{ color: "#23A6F0", textTransform: "none" }}
-                underline="none"
-              >
-                {t("Register")}{" "}
-              </Link>
-            </>
-          )}
-        </Box>
-      </Toolbar>
+  </Toolbar>
 
       <Drawer anchor="right" open={openCart} onClose={() => setOpenCart(false)}>
         <Box sx={{ width: 320, p: 2 }}>

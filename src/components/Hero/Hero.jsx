@@ -40,19 +40,21 @@ export default function Hero() {
       {slides.map((slide, index) => (
         <SwiperSlide key={index}>
           <Box
-            sx={{
-              height: "80vh",
-              backgroundImage: `url(${slide.image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "flex-start",
-              color: "white",
-              position: "relative",
-              px: { xs: 3, md: 10 },
-            }}
-          >
+          sx={{
+            height: { xs: "70vh", md: "90vh" },
+            width: "100%",
+            backgroundImage: `url(${slide.image})`,
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: { xs: "center", md: "flex-start" },
+            textAlign: { xs: "center", md: "left" },
+            color: "white",
+            position: "relative",
+            px: { xs: 2, sm: 4, md: 10 },
+          }}
+        >
             {/* Overlay gradient */}
             <Box
               sx={{
@@ -72,7 +74,7 @@ export default function Hero() {
               }}
             >
               <Typography
-                variant="h2"
+                variant="h3"
                 fontWeight="bold"
                 sx={{
                   letterSpacing: 2,
