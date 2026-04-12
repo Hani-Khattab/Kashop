@@ -1,16 +1,61 @@
-# React + Vite
+# 🛍️ Kashop (E-commerce React Application)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern and scalable e-commerce web application built with **React + Vite**, featuring product browsing, filtering, internationalization, and clean UI architecture.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+* 🛒 Product listing 
+* 🔽 Sorting (Price Low → High / High → Low)
+* 🗂️ Categories & product filtering
+* 🌍 Multi-language support (i18next)
+* ⚡ Fast data fetching using React Query
+* 🧠 Global state management (Auth, Cart, Theme)
+* 🎨 Responsive UI with Material UI (MUI)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧰 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Frontend:** React, Vite
+* **State Management:** Zustand (Auth, Cart, Theme)
+* **Data Fetching:** React Query
+* **UI Library:** Material UI (MUI)
+* **HTTP Client:** Axios
+* **Internationalization:** i18next
+
+---
+
+## 🔄 Product Filtering Logic
+
+* Sorting is based on **price**
+* `ascending = true` → Low → High
+* `ascending = false` → High → Low
+
+---
+
+## ⚙️ Installation
+
+```bash
+git clone https://github.com/your-username/kashop.git
+cd kashop
+npm install
+npm run dev
+```
+
+---
+
+## 🎯 Future Improvements
+
+* 🔍 Search functionality
+* ❤️ Wishlist system
+* 🛒 Full shopping cart experience
+* 📱 Mobile UI enhancements
+
+---
+
+## 👨‍💻 Author
+
+**Hani Khattab**
+
