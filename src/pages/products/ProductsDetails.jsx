@@ -60,7 +60,6 @@ export default function ProductsDetails() {
 
             <Stack direction="row" spacing={1} alignItems="center" sx={{ mb: 2 }}>
               <Rating readOnly value={product_details.rate} precision={0.5} size="small" />
-              <Typography variant="body2" color="text.secondary">(120 Reviews)</Typography>
             </Stack>
 
             <Typography 
