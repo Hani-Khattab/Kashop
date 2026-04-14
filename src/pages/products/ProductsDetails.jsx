@@ -16,6 +16,7 @@ export default function ProductsDetails() {
   if (isError) return <Box sx={{ p: 5, textAlign: 'center', color: 'red' }}>{error.message}</Box>;
 
   const product_details = data.response;
+  console.log("DETAILS:", data);
 
   return (
     <Box component='div' className='product_details' sx={{ py: { xs: 4, md: 8 } }}>

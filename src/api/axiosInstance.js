@@ -3,7 +3,7 @@ import i18next from "i18next";
 
 const axiosInstance = axios.create({
     baseURL: 'https://knowledgeshop.runasp.net/api',
-    withCredentials: true,
+    //withCredentials: true,
 
 });
 
